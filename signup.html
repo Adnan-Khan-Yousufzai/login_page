@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign Up — Demo</title>
+  <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+  <div class="bg" aria-hidden="true"></div>
+  <main class="container">
+    <section class="card signup-card" aria-labelledby="signupTitle">
+      <div class="card-left">
+        <div class="brand">
+          <h1 id="signupTitle">Create your account</h1>
+          <p class="subtitle">Join MyApp — secure and fast. Create your free account.</p>
+        </div>
+        <picture class="hero" aria-hidden="true">
+          <img src="" alt=""/>
+        </picture>
+      </div>
+
+      <form id="signupForm" class="form" novalidate>
+        <div class="input-group">
+          <label for="fullName">Full name</label>
+          <input id="fullName" name="fullName" type="text" placeholder="Jane Doe" required />
+          <small class="error" id="nameError" aria-live="polite"></small>
+        </div>
+
+        <div class="input-group">
+          <label for="suEmail">Email</label>
+          <input id="suEmail" name="email" type="email" placeholder="you@example.com" required />
+          <small class="error" id="emailError" aria-live="polite"></small>
+        </div>
+
+        <div class="row two">
+          <div class="input-group">
+            <label for="suPassword">Password</label>
+            <div class="password-wrap">
+              <input id="suPassword" name="password" type="password" minlength="8" placeholder="At least 8 characters" required />
+              <button type="button" class="toggle" id="toggleSuPassword" aria-label="Show password">Show</button>
+            </div>
+            <small class="error" id="passwordError" aria-live="polite"></small>
+            <div class="strength" id="strength"><span></span></div>
+          </div>
+
+          <div class="input-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input id="confirmPassword" name="confirm" type="password" placeholder="Repeat your password" required />
+            <small class="error" id="confirmError" aria-live="polite"></small>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="phone">Phone (optional)</label>
+          <input id="phone" name="phone" type="tel" placeholder="+1 555 555 5555" />
+        </div>
+
+        <label class="terms"><input type="checkbox" id="agree" required> I agree to the <a href="#">terms</a> and <a href="#">privacy</a>.</label>
+        <small class="error" id="termsError" aria-live="polite"></small>
+
+        <button class="btn primary" type="submit">Create account</button>
+
+        <div class="divider"><span>or</span></div>
+        <div class="socials">
+          <button type="button" class="btn social google">Continue with Google</button>
+          <button type="button" class="btn social">Continue with GitHub</button>
+        </div>
+
+        <p class="muted">Already have an account? <a href="index.html">Sign in</a></p>
+
+        <div id="signupToast" role="status" aria-live="polite" class="toast" hidden></div>
+      </form>
+    </section>
+  </main>
+
+  <script src="signup.js" defer></script>
+</body>
+</html>
