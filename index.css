@@ -1,0 +1,97 @@
+:root{
+	--bg-1: #0f172a;
+	--bg-2: #021124;
+	--accent: #7c5cff;
+	--accent-2: #00d4ff;
+	--muted: #9aa4b2;
+	--glass: rgba(255,255,255,0.06);
+	--glass-2: rgba(255,255,255,0.04);
+	--success: #1dd1a1;
+	--danger: #ff6b6b;
+	--radius: 14px;
+	font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;}
+body{
+	margin:0;
+	color:#e6eef8;
+	background:linear-gradient(180deg,var(--bg-1),var(--bg-2));
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	min-height:100vh;
+}
+
+.bg{
+	position:fixed;inset:0;z-index:0;pointer-events:none;
+	background: radial-gradient(600px 400px at 10% 10%, rgba(124,92,255,0.12), transparent 10%),
+							radial-gradient(500px 350px at 90% 90%, rgba(0,212,255,0.08), transparent 10%);
+	backdrop-filter: blur(6px);
+}
+
+.container{position:relative;z-index:1;padding:32px;width:100%;max-width:980px;display:grid;place-items:center}
+
+.login-card{
+	width:100%;max-width:920px;display:grid;grid-template-columns:1fr 420px;gap:40px;align-items:center;
+	background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+	box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+	border-radius:var(--radius);padding:28px;overflow:hidden;
+	border: 1px solid rgba(255,255,255,0.04);
+}
+
+.brand{padding:28px}
+.brand h1{margin:0;font-size:28px;letter-spacing:0.4px;color:var(--accent)}
+.brand .subtitle{color:var(--muted);margin-top:8px}
+
+.form{padding:12px 28px 28px}
+.input-group{margin-bottom:16px}
+.input-group label{display:block;font-size:13px;color:var(--muted);margin-bottom:8px}
+.input-group input{
+	width:100%;padding:12px 14px;border-radius:10px;background:linear-gradient(180deg,var(--glass),var(--glass-2));
+	border:1px solid rgba(255,255,255,0.04);color:inherit;font-size:15px;outline:none;transition:box-shadow .18s,border-color .18s,transform .12s;
+}
+.input-group input:focus{box-shadow:0 6px 18px rgba(124,92,255,0.08);border-color:rgba(124,92,255,0.25);transform:translateY(-1px)}
+.input-group .error{display:block;color:var(--danger);font-size:12px;height:16px;margin-top:6px}
+
+.password-wrap{display:flex;align-items:center;gap:8px}
+.password-wrap .toggle{background:transparent;border:none;color:var(--accent-2);padding:8px 10px;border-radius:8px;cursor:pointer;font-weight:600}
+
+.row{display:flex;align-items:center}
+.row.between{justify-content:space-between}
+.small{font-size:13px}
+.remember input{margin-right:8px}
+.forgot{color:var(--muted);text-decoration:none}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 14px;border-radius:10px;border:none;cursor:pointer;font-weight:600}
+.btn.primary{width:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#041125;box-shadow:0 8px 30px rgba(124,92,255,0.14)}
+.btn.social{width:48%;background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)}
+.socials{display:flex;gap:12px;margin-top:12px}
+.divider{display:flex;align-items:center;gap:12px;margin:20px 0}
+.divider span{background:linear-gradient(90deg, rgba(255,255,255,0.04), transparent);padding:6px 12px;border-radius:999px;color:var(--muted);font-size:13px}
+
+.signup{color:var(--muted);padding:12px 28px 0}
+.signup a{color:var(--accent);text-decoration:none}
+
+.toast{position:fixed;right:20px;bottom:20px;background:rgba(2,6,23,0.9);color:#e6eef8;padding:12px 16px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 10px 30px rgba(2,6,23,0.7)}
+
+@media (max-width:900px){
+	.login-card{grid-template-columns:1fr;gap:18px;padding:20px}
+	.brand{padding:12px}
+	.form{padding:0 12px 12px}
+	.socials{flex-direction:column}
+	.btn.social{width:100%}
+}
+
+@media (max-width:420px){
+	:root{--radius:12px}
+	.brand h1{font-size:22px}
+	.input-group input{font-size:14px}
+}
+
+/* subtle entrance animation */
+.login-card{transform:translateY(6px);animation:cardIn .6s cubic-bezier(.2,.9,.2,1) both}
+@keyframes cardIn{from{opacity:0;transform:translateY(18px) scale(.998)}to{opacity:1;transform:translateY(0) scale(1)}}
